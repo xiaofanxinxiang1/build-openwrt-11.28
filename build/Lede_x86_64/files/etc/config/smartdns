@@ -1,65 +1,929 @@
 
 config smartdns
 	option server_name 'smartdns'
-	option port '6053'
-	option tcp_server '1'
-	option dualstack_ip_selection '0'
-	option prefetch_domain '0'
+	option dualstack_ip_selection '1'
+	option prefetch_domain '1'
 	option serve_expired '1'
-	option redirect 'dnsmasq-upstream'
-	option cache_size '5120'
-	option rr_ttl '20'
-	option rr_ttl_min '300'
-	option rr_ttl_max '600'
-	option seconddns_port '6553'
-	option seconddns_tcp_server '1'
 	option seconddns_no_speed_check '0'
+	option seconddns_no_dualstack_selection '0'
+	option seconddns_no_cache '0'
+	option tcp_server '0'
+	option seconddns_tcp_server '0'
+	option coredump '0'
+	option port '6053'
+	option ipv6_server '0'
+	option redirect 'dnsmasq-upstream'
+	option seconddns_port '5335'
+	option seconddns_server_group 'fq_dns'
+	option seconddns_enabled '1'
 	option seconddns_no_rule_addr '0'
 	option seconddns_no_rule_nameserver '0'
 	option seconddns_no_rule_ipset '0'
 	option seconddns_no_rule_soa '0'
-	option seconddns_no_dualstack_selection '0'
-	option seconddns_no_cache '0'
-	option force_aaaa_soa '0'
-	option coredump '0'
-	option enabled '1'
-	option ipv6_server '0'
+	option enabled '0'
+	option cache_size '20000'
+	option rr_ttl '3600'
+	option rr_ttl_min '5'
 	list old_redirect 'dnsmasq-upstream'
 	list old_port '6053'
-	list old_enabled '1'
+	list old_enabled '0'
 
 config server
 	option enabled '1'
 	option type 'udp'
-	option name '114dns'
+	option name '厦门联通'
+	option ip '218.104.128.106'
+	option port '53'
+	option server_group 'china'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '厦门联通'
+	option ip '58.22.96.66'
+	option port '53'
+	option server_group 'china'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '114DNS'
 	option ip '114.114.114.114'
+	option server_group 'china'
+	option blacklist_ip '0'
 	option port '53'
 
 config server
 	option enabled '1'
 	option type 'udp'
-	option name '阿里'
-	option ip '223.5.5.5'
+	option name '114DNS'
+	option ip '114.114.115.115'
+	option server_group 'china'
+	option blacklist_ip '0'
 	option port '53'
 
 config server
 	option enabled '1'
 	option type 'udp'
-	option name '腾讯'
+	option name 'Public DNS+'
 	option ip '119.29.29.29'
+	option server_group 'china'
+	option blacklist_ip '0'
 	option port '53'
 
 config server
 	option enabled '1'
 	option type 'udp'
-	option name '百度'
-	option ip '180.76.76.76'
+	option name 'Public DNS+'
+	option ip '182.254.116.116'
+	option server_group 'china'
+	option blacklist_ip '0'
 	option port '53'
 
 config server
 	option enabled '1'
 	option type 'udp'
-	option name 'CNNIC'
+	option name 'Public DNS+'
+	option ip '182.254.118.118'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '广东电信DNS'
+	option ip '202.96.128.86'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '广东电信DNS'
+	option ip '202.96.134.33'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '广东电信DNS'
+	option ip '202.96.128.166'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '广东电信DNS'
+	option ip '202.96.128.68'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'Apple TV DNS 广东电信服务器 IP 地址'
+	option ip '203.195.182.150'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'Apple TV DNS 杭州电信服务器 IP 地址'
+	option ip '115.29.189.118'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'Apple TV DNS 上海电信服务器 IP 地址'
+	option ip '180.153.225.136'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'Apple TV DNS 北方联通服务器 IP 地址'
+	option ip '118.244.224.124'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'CNNIC sDNS'
 	option ip '1.2.4.8'
+	option server_group 'china'
+	option blacklist_ip '0'
 	option port '53'
 
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'oneDNS'
+	option ip '112.124.47.27'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'oneDNS'
+	option ip '114.215.126.16'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'DNS 派电信/移动/铁通'
+	option ip '101.226.4.6'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'DNS 派电信/移动/铁通'
+	option ip '218.30.118.6'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'DNS 派 联通'
+	option ip '123.125.81.6'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'DNS 派 联通'
+	option ip '140.207.198.6'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '微软'
+	option ip '4.2.2.1'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '微软'
+	option ip '4.2.2.2'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '微软'
+	option ip '4.2.2.3'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '微软'
+	option ip '4.2.2.4'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'CNNIC sDNS'
+	option ip '210.2.4.8'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'AliDNS'
+	option ip '223.5.5.5'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'AliDNS'
+	option ip '223.6.6.6'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name '百度 BaiduDNS'
+	option ip '180.76.76.76'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option name 'gdtelecom'
+	option ip '202.96.128.143'
+	option server_group 'china'
+	option blacklist_ip '0'
+	option port '53'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip '8.8.8.8'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option type 'tcp'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip '8.8.8.8'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip 'https://dns.google/dns-query'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip '9.9.9.9'
+	option blacklist_ip '0'
+	option type 'tcp'
+	option port '853'
+	option server_group 'HK'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip '9.9.9.9'
+	option type 'tls'
+	option blacklist_ip '0'
+	option port '853'
+	option server_group 'HK'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip 'https://dns.quad9.net/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option server_group 'HK'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip '8.8.4.4'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip '8.8.4.4'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip 'https://dns.google/dns-query'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'CloudFlare DNS'
+	option ip '1.1.1.1'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'CloudFlare DNS'
+	option ip '1.1.1.1'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'CloudFlare DNS'
+	option ip 'https://1.1.1.1/dns-query'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'CloudFlare DNS'
+	option ip '1.0.0.1'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'CloudFlare DNS'
+	option ip '1.0.0.1'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'CloudFlare DNS'
+	option ip 'https://1.0.0.1/dns-query'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip '208.67.222.222'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip '208.67.222.222'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip 'https://doh.opendns.com/dns-query'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip '208.67.222.220'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip '208.67.222.220'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip '208.67.222.220'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip '208.67.222.123'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip '208.67.222.123'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip '208.67.222.123'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'HK DNS'
+	option ip '202.181.224.2'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'HK DNS'
+	option ip '202.181.224.2'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'HK DNS'
+	option ip '202.181.224.2'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'nortonco'
+	option ip '199.85.127.10'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'nortonco'
+	option ip '199.85.127.10'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name 'nortonco'
+	option ip '199.85.127.10'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '香港 DNS'
+	option ip '205.252.144.228'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '香港 DNS'
+	option ip '205.252.144.228'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '香港 DNS'
+	option ip '205.252.144.228'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '中华电信公共 DNS'
+	option ip '168.95.1.1'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '中华电信公共 DNS'
+	option ip '168.95.1.1'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '中华电信公共 DNS'
+	option ip '168.95.1.1'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '中华电信公共 DNS'
+	option ip '168.95.192.1'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '中华电信公共 DNS'
+	option ip '168.95.192.1'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '中华电信公共 DNS'
+	option ip '168.95.192.1'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '香港宽频 DNS'
+	option ip '203.80.96.10'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '香港宽频 DNS'
+	option ip '203.80.96.10'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '香港宽频 DNS'
+	option ip '203.80.96.10'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '香港宽频 DNS'
+	option ip '203.80.96.9'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '香港宽频 DNS'
+	option ip '203.80.96.9'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '香港宽频 DNS'
+	option ip '203.80.96.9'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '和记环球电讯 DNS'
+	option ip '202.45.84.58'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '和记环球电讯 DNS'
+	option ip '202.45.84.58'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '和记环球电讯 DNS'
+	option ip '202.45.84.58'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '澳门大学 DNS'
+	option ip '202.175.3.8'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '澳门大学 DNS'
+	option ip '202.175.3.8'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '澳门大学 DNS'
+	option ip '202.175.3.8'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '澳门大学 DNS'
+	option ip '202.175.3.3'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '澳门大学 DNS'
+	option ip '202.175.3.3'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '澳门大学 DNS'
+	option ip '202.175.3.3'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '208.151.69.65'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '208.151.69.65'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '208.151.69.65'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '205.252.144.228'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '205.252.144.228'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '205.252.144.228'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '202.181.202.140'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '202.181.202.140'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '202.181.202.140'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '202.12.27.33'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '202.12.27.33'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '美国 DNS'
+	option ip '202.12.27.33'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '日本 DNS'
+	option ip '202.216.228.18'
+	option type 'tcp'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '日本 DNS'
+	option ip '202.216.228.18'
+	option type 'tls'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
+
+config server
+	option enabled '1'
+	option name '日本 DNS'
+	option ip '202.216.228.18'
+	option type 'https'
+	option server_group 'HK'
+	option blacklist_ip '0'
+	option port '853'
